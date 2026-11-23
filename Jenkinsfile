@@ -77,6 +77,7 @@ pipeline {
                     docker run -d --name "$PROD_CONTAINER" \
                       --restart unless-stopped \
                       -p ${PROD_PORT}:80 "${IMAGE_NAME}:${BUILD_NUMBER}"
+                      sleep 5
                     curl -fsS "http://127.0.0.1:${PROD_PORT}/" >/dev/null
                 '''
             }
