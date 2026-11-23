@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CI/CD Assignment 3 | FA23-BCT-008</title>
+  <style>
+    :root { font-family: Arial, Helvetica, sans-serif; color: #17324c; background: #f0f5fa; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; box-sizing: border-box; }
+    main { background: white; max-width: 680px; width: 100%; padding: 38px; box-sizing: border-box; border-radius: 16px; box-shadow: 0 10px 35px #12345620; }
+    h1 { font-size: 28px; margin: 0 0 12px; }
+    .muted { color: #52687c; }
+    .student { margin: 24px 0; border-left: 4px solid #147cb5; background: #f4f9fc; padding: 14px 18px; line-height: 1.7; }
+    .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    button { background: #136da8; color: white; border: 0; border-radius: 7px; padding: 11px 16px; cursor: pointer; font-weight: bold; }
+    button:hover { background: #0c5687; }
+    input { box-sizing: border-box; flex: 1; min-width: 200px; border: 1px solid #a0b3c0; border-radius: 7px; padding: 11px; font: inherit; }
+    label { display: block; font-weight: bold; margin: 24px 0 8px; }
+    #button-message { min-height: 24px; color: #096b42; font-weight: 600; }
+    #submitted-text { text-align: center; min-height: 28px; margin-top: 24px; color: #123c74; font-weight: bold; font-size: 20px; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1 id="main-heading">Automated CI/CD Pipeline — FA23-BCT-008</h1>
+    <p class="muted">CSC418 Cloud Computing · Lab Assignment 3</p>
+    <div class="student">
+      <div id="student-name"><strong>Student:</strong> Balach Khan</div>
+      <div id="roll-number"><strong>Roll Number:</strong> FA23-BCT-008</div>
+    </div>
+
+    <h2>Interactive Selenium Testing</h2>
+    <div class="controls">
+      <button type="button" id="greet-btn">Show greeting</button>
+    </div>
+    <p id="button-message" role="status"></p>
+
+    <form id="message-form">
+      <label for="message-input">Enter a message</label>
+      <div class="controls">
+        <input type="text" id="message-input" placeholder="Type anything here" required>
+        <button type="submit" id="submit-btn">Submit</button>
+      </div>
+    </form>
+    <p id="submitted-text" aria-live="polite"></p>
+  </main>
+  <script>
+    document.getElementById('greet-btn').addEventListener('click', function () {
+      document.getElementById('button-message').textContent = 'Hello from Balach Khan!';
+    });
+    document.getElementById('message-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('submitted-text').textContent = document.getElementById('message-input').value;
+    });
+  </script>
+</body>
+</html>
